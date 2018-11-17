@@ -61,6 +61,10 @@ The 'red eagle' pose appears on the neighbourhood screen and during loading scre
 The only exception is when a new default neighbourhood is loaded for the first time
 in which the thumbnails were already pre-rendered.
 
+### Polygon Explosion
+
+Icons above a Sim's head (like the one when you get a new friend) can appear glitchy.
+
 ### Black screen after resolution changes
 Changing resolution while at a household can sometimes result in a black screen.
 
