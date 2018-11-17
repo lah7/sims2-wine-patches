@@ -32,16 +32,14 @@ compatible with a **32-bit Wine prefix**.
 
 ## Credits
 
-I take no credit for the patches.
+Comment                                                     | Author                | Notes
+----------------------------------------------------------- | --------------------- | -----------------
+[124](https://bugs.winehq.org/show_bug.cgi?id=8051#c124     | swswine               | Initial Patch
+[160](https://bugs.winehq.org/show_bug.cgi?id=8051#c160)    | Robert Walker         | Updated to Wine 3.5.
+[161](https://bugs.winehq.org/show_bug.cgi?id=8051#c161)    | Alexandr Oleynikov    | Updated to Wine 3.7 with staging patches.
+[164](https://bugs.winehq.org/show_bug.cgi?id=8051#c164)    | Paul Gofman           | Updated to Wine 3.18, works with newer drivers.
 
-Comment | Author                | Notes
---------| --------------------- | -----------------
-124     | swswine               | Initial Patch
-160     | Robert Walker         | Updated to Wine 3.5.
-161     | Alexandr Oleynikov    | Updated to Wine 3.7 with staging patches.
-164     | Paul Gofman           | Updated to Wine 3.18, works with newer drivers.
-
-These patches are copies [from bug report 8051](https://bugs.winehq.org/show_bug.cgi?id=8051).
+See [bug report 8051 on Wine's bug tracker](https://bugs.winehq.org/show_bug.cgi?id=8051) for development discussions.
 
 
 ## Known Issues
