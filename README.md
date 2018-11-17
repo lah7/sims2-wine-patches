@@ -26,7 +26,7 @@ See the **[Releases](https://github.com/lah7/sims-2-wine-patches/releases)** pag
 for the compiled binaries, which can also be imported in front-ends such as
 [PlayOnLinux](http://www.playonlinux.com/en).
 
-These are built on **Ubuntu 16.04 (x86)** system, meaning they will only
+These are built on **Ubuntu 16.04** on **i386** architecture, meaning they will only
 compatible with a **32-bit Wine prefix**.
 
 
@@ -34,7 +34,7 @@ compatible with a **32-bit Wine prefix**.
 
 Comment                                                     | Author                | Notes
 ----------------------------------------------------------- | --------------------- | -----------------
-[124](https://bugs.winehq.org/show_bug.cgi?id=8051#c124     | swswine               | Initial Patch
+[124](https://bugs.winehq.org/show_bug.cgi?id=8051#c124)    | swswine               | Initial Patch
 [160](https://bugs.winehq.org/show_bug.cgi?id=8051#c160)    | Robert Walker         | Updated to Wine 3.5.
 [161](https://bugs.winehq.org/show_bug.cgi?id=8051#c161)    | Alexandr Oleynikov    | Updated to Wine 3.7 with staging patches.
 [164](https://bugs.winehq.org/show_bug.cgi?id=8051#c164)    | Paul Gofman           | Updated to Wine 3.18, works with newer drivers.
