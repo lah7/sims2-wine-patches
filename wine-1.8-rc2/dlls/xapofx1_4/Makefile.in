@@ -1,5 +1,0 @@
-MODULE    = xapofx1_4.dll
-IMPORTS   = ole32
-
-C_SRCS = \
-	main.c

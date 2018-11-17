@@ -1,0 +1,7 @@
+MODULE    = d3dx10_43.dll
+IMPORTLIB = d3dx10
+
+C_SRCS = \
+	d3dx10_43_main.c
+
+RC_SRCS = version.rc
