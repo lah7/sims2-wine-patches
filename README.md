@@ -45,39 +45,80 @@ These patches are copies [from bug report 8051](https://bugs.winehq.org/show_bug
 
 ## Known Issues
 
-TBA
+### Hardcoded 256 vertex shaders
 
-**Please do not submit test reports to AppDB when using patched copies of Wine
-as the test results do not reflect the nature of "vanilla" Wine.**
+The Sims 2 requests 1024 vertex shader constants, but Wine has a hardcoded limit
+of 256. Direct3D 9 normally supports up to 8192, using hardware shaders first
+(where available), followed by software emulation.
+
+https://github.com/wine-mirror/wine/blob/2ef62f90853d9903cdded2442e382b89a4c3a55f/dlls/d3d9/d3d9_private.h#L43
+
+### Corrupted family thumbnails
+
+The 'red eagle' pose appears on the neighbourhood screen and during loading screens.
+
+![Red Eagle Pose](.github/red-eagle-pose.jpg)
+
+The only exception is when a new default neighbourhood is loaded for the first time
+in which the thumbnails were already pre-rendered.
+
+### Black screen after resolution changes
+Changing resolution while at a household can sometimes result in a black screen.
+
+### [NVIDIA only] Black box shadows
+
+This also happens under the NVIDIA driver on Windows. This previously did not happen
+with earlier versions of the NVIDIA driver (around 396.x and before) and the original
+Wine patches.
+
+![Black Shadow Bug](.github/black-shadow-bug.jpg)
+
+### [Wine] Huge log files.
+
+As the patches expose a lot of FIXMEs. If you're running via the terminal;
+keeping a log or using PlayOnLinux, beware that this can fill up to many
+hundreds of MBs, causing potential slowdown.
+
+### Other Notes
+
+* If there are any other technical explainations or issues, feel free to create a pull request.
+* Please **do not** submit test reports to AppDB when using patched copies of Wine
+as the test results do not reflect "vanilla" Wine.
+* To view FPS and shader version in-game, press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>
+* There are some engine differences/improvements between the original release,
+later expansion packs and the Origin version.
+
 
 ## Compile from Source
 
 1. Clone this repository to acquire the patches.
 
-    git clone https://github.com/lah7/sims-2-wine-patches.git
+       git clone https://github.com/lah7/sims-2-wine-patches.git
 
 2. Download a copy of the Wine source code from https://dl.winehq.org/wine/source/
 
-    tar -xvf wine-XXX.tar.bz2
-    ln -s wine-XXX a
-    patch -p0 < /path/to/file.patch
-    cd wine-XXX/
-    ./configure --prefix=/path/to/build/
-    make install -j4
+       tar -xvf wine-XXX.tar.bz2
+       ln -s wine-XXX a
+       patch -p0 < /path/to/file.patch
+       cd wine-XXX/
+       ./configure --prefix=/path/to/build/
+       make install -j4
 
 To speed up compiling, change `-j4` to the number of processor cores you have.
 
 #### macOS Support
 
 I haven't compiled for this platform before, but technically, if you install
-all the dependencies, Wine would be able to compile and install too.
+all the dependencies and then follow these instructions, Wine will be able
+to compile and play the game on Mac too.
 
 
 ## External Links
 
-* YouTube 1.8-rc2 demo (Base game) - https://www.youtube.com/watch?v=j-pFDlEtnC0
-* YouTube 1.8-rc2 demo (EP9 game) - https://www.youtube.com/watch?v=h9rZPdNLd6I&t=37s
-* Lutris - https://lutris.net/games/the-sims-2/
+* [YouTube video demonstrating base game under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=j-pFDlEtnC0)
+* [YouTube video demonstrating EP9 under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=h9rZPdNLd6I&t=37s)
+* [Lutris](https://lutris.net/games/the-sims-2)
+* [Lutris - GitHub Wiki](https://github.com/lutris/lutris/wiki/Game:-The-Sims-2) - covers Origin version
 
 
 ## License
