@@ -1,0 +1,7 @@
+MODULE    = bcrypt.dll
+IMPORTS   = advapi32
+
+C_SRCS = \
+	bcrypt_main.c
+
+RC_SRCS = version.rc

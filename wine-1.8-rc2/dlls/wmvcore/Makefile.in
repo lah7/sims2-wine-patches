@@ -1,0 +1,6 @@
+MODULE    = wmvcore.dll
+IMPORTS   = kernel32
+
+C_SRCS = \
+	wmvcore_main.c \
+	writer.c

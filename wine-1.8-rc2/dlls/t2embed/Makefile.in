@@ -1,0 +1,4 @@
+MODULE    = t2embed.dll
+
+C_SRCS = \
+	main.c

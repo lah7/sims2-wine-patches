@@ -1,0 +1,19 @@
+MODULE    = d2d1.dll
+IMPORTLIB = d2d1
+IMPORTS   = d3d10_1 dxguid uuid
+DELAYIMPORTS = dwrite
+
+C_SRCS = \
+	bitmap.c \
+	brush.c \
+	factory.c \
+	geometry.c \
+	mesh.c \
+	render_target.c \
+	state_block.c \
+	stroke.c \
+	wic_render_target.c
+
+RC_SRCS = version.rc
+
+geometry_EXTRADEFS = $(EXCESS_PRECISION_CFLAGS)

@@ -1,0 +1,133 @@
+/*
+ * COM Classes for xaudio
+ *
+ * Copyright 2015 Guillaume Charifi
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+
+#pragma makedep register
+
+[
+    helpstring("XAudio2 Class"),
+    threading(both),
+    uuid(5a508685-a254-4fba-9b82-9a24b00306af)
+]
+coclass XAudio2 { interface IXAudio2; }
+
+[
+    helpstring("XAudio2 Volume Meter Class"),
+    threading(both),
+    uuid(cac1105f-619b-4d04-831a-44e1cbf12d57)
+]
+coclass AudioVolumeMeter { interface IUnknown; }
+
+[
+    helpstring("XAudio2 Reverb Class"),
+    threading(both),
+    uuid(6a93130e-1d53-41d1-a9cf-e758800bb179)
+]
+coclass AudioReverb { interface IUnknown; }
+
+[
+    helpstring("XACT 31 Class"),
+    threading(both),
+    uuid(962f5027-99be-4692-a468-85802cf8de61)
+]
+coclass XACT31 { interface IUnknown; }
+
+[
+    helpstring("XAPOFX1.1 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000101)
+]
+coclass FXReverb11 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.2 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000102)
+]
+coclass FXReverb12 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.3 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000103)
+]
+coclass FXReverb13 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.4 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000104)
+]
+coclass FXReverb14 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.5 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000105)
+]
+coclass FXReverb15 { interface IXAPO; }
+
+[
+    helpstring("XAudio2.8 FXReverb Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF02000208)
+]
+coclass FXReverb28 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.1 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000101)
+]
+coclass FXEQ11 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.2 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000102)
+]
+coclass FXEQ12 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.3 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000103)
+]
+coclass FXEQ13 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.4 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000104)
+]
+coclass FXEQ14 { interface IXAPO; }
+
+[
+    helpstring("XAPOFX1.5 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000105)
+]
+coclass FXEQ15 { interface IXAPO; }
+
+[
+    helpstring("XAudio2.8 FXEQ Class (Wine)"),
+    threading(both),
+    uuid(a90bc001-e897-e897-7439-43FF00000208)
+]
+coclass FXEQ28 { interface IXAPO; }

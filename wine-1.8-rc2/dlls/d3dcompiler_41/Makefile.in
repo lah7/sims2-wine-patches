@@ -1,0 +1,6 @@
+MODULE    = d3dcompiler_41.dll
+
+C_SRCS = \
+	d3dcompiler_41_main.c
+
+RC_SRCS = version.rc

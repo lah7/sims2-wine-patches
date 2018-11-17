@@ -1,0 +1,14 @@
+TESTDLL   = rpcrt4.dll
+IMPORTS   = ole32 rpcrt4 advapi32
+EXTRAIDLFLAGS = --prefix-server=s_
+
+C_SRCS = \
+	cstub.c \
+	generated.c \
+	ndr_marshall.c \
+	rpc.c \
+	rpc_async.c \
+	rpc_protseq.c \
+	server.c
+
+IDL_SRCS = server.idl

@@ -1,0 +1,7 @@
+MODULE    = d3dx9_35.dll
+IMPORTS   = d3d9
+
+C_SRCS = \
+	d3dx9_35_main.c
+
+RC_SRCS = version.rc

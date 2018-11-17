@@ -1,0 +1,6 @@
+MODULE    = crtdll.dll
+IMPORTLIB = crtdll
+IMPORTS   = msvcrt
+
+C_SRCS = \
+	crtdll_main.c

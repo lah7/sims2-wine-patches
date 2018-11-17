@@ -1,0 +1,7 @@
+MODULE    = pstorec.dll
+IMPORTS   = uuid
+
+C_SRCS = \
+	pstorec.c
+
+IDL_SRCS = pstorec_tlb.idl

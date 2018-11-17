@@ -1,0 +1,8 @@
+MODULE    = dmusic32.dll
+IMPORTLIB = dmusic32
+IMPORTS   = uuid
+
+C_SRCS = \
+	dmusic32_main.c
+
+RC_SRCS = version.rc

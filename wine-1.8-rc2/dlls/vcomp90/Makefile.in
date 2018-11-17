@@ -1,0 +1,4 @@
+MODULE = vcomp90.dll
+
+C_SRCS = \
+	main.c
