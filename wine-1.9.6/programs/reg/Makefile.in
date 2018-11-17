@@ -1,8 +1,0 @@
-MODULE    = reg.exe
-APPMODE   = -mconsole -municode
-IMPORTS   = advapi32
-DELAYIMPORTS = user32
-
-C_SRCS = reg.c
-
-RC_SRCS = reg.rc

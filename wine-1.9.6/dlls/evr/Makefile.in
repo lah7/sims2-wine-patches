@@ -1,4 +1,0 @@
-MODULE    = evr.dll
-
-C_SRCS = \
-	main.c

@@ -1,6 +1,0 @@
-TESTDLL   = inetcomm.dll
-IMPORTS   = inetcomm oleaut32 ole32
-
-C_SRCS = \
-	mimeintl.c \
-	mimeole.c

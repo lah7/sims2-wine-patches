@@ -1,5 +1,0 @@
-TESTDLL   = services.exe
-IMPORTS   = advapi32
-
-C_SRCS = \
-	service.c

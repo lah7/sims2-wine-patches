@@ -1,8 +1,0 @@
-TESTDLL   = schedsvc.dll
-IMPORTS   = rpcrt4 ole32
-
-C_SRCS = \
-	rpcapi.c
-
-IDL_SRCS = \
-	schrpc.idl

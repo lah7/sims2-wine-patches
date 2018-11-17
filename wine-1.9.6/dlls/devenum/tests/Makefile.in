@@ -1,5 +1,0 @@
-TESTDLL   = devenum.dll
-IMPORTS   = oleaut32 ole32 advapi32
-
-C_SRCS = \
-	devenum.c

@@ -1,6 +1,0 @@
-MODULE    = winedevice.exe
-APPMODE   = -mwindows -municode
-IMPORTS   = advapi32 ntoskrnl.exe
-
-C_SRCS = \
-	device.c

@@ -1,4 +1,0 @@
-MODULE = wlanapi.dll
-
-C_SRCS = \
-	main.c
