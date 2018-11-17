@@ -20,10 +20,11 @@ the game with some graphical issues. This repository will maintain the latest
 copy of Wine with these patches for you to test, debug or play.
 
 
-## Releases
+## Binaries
 
-See the **Releases** page for the compiled binaries, which can also be imported
-in front-ends such as [PlayOnLinux](http://www.playonlinux.com/en).
+See the **[Releases](https://github.com/lah7/sims-2-wine-patches/releases)** page
+for the compiled binaries, which can also be imported in front-ends such as
+[PlayOnLinux](http://www.playonlinux.com/en).
 
 These are built on **Ubuntu 16.04 (x86)** system, meaning they will only
 compatible with a **32-bit Wine prefix**.
