@@ -1,0 +1,16 @@
+TESTDLL   = rpcrt4.dll
+IMPORTS   = oleaut32 ole32 rpcrt4 secur32 advapi32
+EXTRAIDLFLAGS = --prefix-server=s_
+EXTRADEFS = -DPROXY_DELEGATION
+
+C_SRCS = \
+	cstub.c \
+	generated.c \
+	ndr_marshall.c \
+	rpc.c \
+	rpc_async.c \
+	server.c
+
+IDL_SRCS = \
+	cstub.idl \
+	server.idl

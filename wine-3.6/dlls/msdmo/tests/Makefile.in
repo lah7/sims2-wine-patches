@@ -1,5 +1,0 @@
-TESTDLL = msdmo.dll
-IMPORTS = msdmo
-
-C_SRCS = \
-	msdmo.c

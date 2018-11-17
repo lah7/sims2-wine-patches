@@ -1,4 +1,0 @@
-TESTDLL   = kernelbase.dll
-
-C_SRCS = \
-	path.c

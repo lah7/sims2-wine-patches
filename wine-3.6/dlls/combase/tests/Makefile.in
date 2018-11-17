@@ -1,4 +1,0 @@
-TESTDLL   = combase.dll
-
-C_SRCS = \
-	string.c
