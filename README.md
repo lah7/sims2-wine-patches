@@ -15,15 +15,15 @@ It's one of the reasons why the game remains
 [**Garbage** on AppDB](https://appdb.winehq.org/objectManager.php?sClass=application&iId=1942). Also [voted #6](https://appdb.winehq.org/votestats.php)!
 
 Fear not, as some bug busters have patched the source to enables developers to
-investigate the missing Direct3D features, as well as enabling Sims 2 fans to start
-the game with some graphical issues. This repository will maintain the latest
+investigate the missing Direct3D features, as well as enabling The Sims 2 to start
+the game expecting graphical issues. This repository will maintain the latest
 copy of Wine with these patches for you to test, debug or play.
 
 
 ## Binaries
 
 See the **[Releases](https://github.com/lah7/sims-2-wine-patches/releases)** page
-for the compiled binaries, which can also be imported in front-ends such as
+for the compiled binaries, which can also be added to front-ends such as
 [PlayOnLinux](http://www.playonlinux.com/en).
 
 These are built on **Ubuntu 16.04** on **i386** architecture, meaning they will only
@@ -34,7 +34,7 @@ compatible with a **32-bit Wine prefix**.
 
 Comment                                                     | Author                | Notes
 ----------------------------------------------------------- | --------------------- | -----------------
-[124](https://bugs.winehq.org/show_bug.cgi?id=8051#c124)    | swswine               | Initial Patch
+[124](https://bugs.winehq.org/show_bug.cgi?id=8051#c124)    | swswine               | Initial patch and discovery
 [160](https://bugs.winehq.org/show_bug.cgi?id=8051#c160)    | Robert Walker         | Updated to Wine 3.5.
 [161](https://bugs.winehq.org/show_bug.cgi?id=8051#c161)    | Alexandr Oleynikov    | Updated to Wine 3.7 with staging patches.
 [164](https://bugs.winehq.org/show_bug.cgi?id=8051#c164)    | Paul Gofman           | Updated to Wine 3.18, works with newer drivers.
@@ -48,9 +48,63 @@ See [bug report 8051 on Wine's bug tracker](https://bugs.winehq.org/show_bug.cgi
 
 The Sims 2 requests 1024 vertex shader constants, but Wine has a hardcoded limit
 of 256. Direct3D 9 normally supports up to 8192, using hardware shaders first
-(where available), followed by software emulation.
+(where available), followed by software emulation. Software emulation is currently
+not supported in Wine.
 
-https://github.com/wine-mirror/wine/blob/2ef62f90853d9903cdded2442e382b89a4c3a55f/dlls/d3d9/d3d9_private.h#L43
+### Undocumented D3D9 interfaces
+
+The developers of The Sims 2 used undocumented interfaces for rendering
+shaders as discovered in [the bug report discussion](https://bugs.winehq.org/show_bug.cgi?id=8051#c124).
+Some of these will require implementation in Wine which are quite the task:
+
+* [Remove hardcoded vertex shader limit.](https://github.com/wine-mirror/wine/blob/2ef62f90853d9903cdded2442e382b89a4c3a55f/dlls/d3d9/d3d9_private.h#L43)
+  * *Suggestion:* Via registry?
+* Add ProcessVertices with shader support.
+
+### Shader Models
+
+Shader Model 2 and Shader Model 3 reveal differences, especially in the original
+base game (no patches, no expansions). Newer expansion packs suggest an improved
+rendering engine is used and may show no difference.
+
+#### Base Game
+
+| Shader Model Version | `useShaders` | Screenshot |
+| -------------------- | ------------ | ---------- |
+| 2 | `false` | ![SM2, shaders disabled](.github/base-game-sm2-shadersfalse.jpg)
+| 2 | `true` | ![SM2, shaders enabled](.github/base-game-sm2-shaderstrue.jpg)
+| 3 | `false` | ![SM3, shaders disabled](.github/base-game-sm3-shadersfalse.jpg)
+| 3 | `true` | ![SM3, shaders enabled](.github/base-game-sm3-shaderstrue.jpg)
+
+The Shader Model version can be set via [Wine's registry](https://wiki.winehq.org/Useful_Registry_Keys):
+
+    HKEY_CURRENT_USER\Software\Wine\Direct3D\MaxShaderModelPS
+    HKEY_CURRENT_USER\Software\Wine\Direct3D\MaxShaderModelVS
+
+    REG_DWORD => 2
+
+By opening the cheat console (CTRL+SHIFT+C), you can toggle between parameters
+that will effect rendering in-game:
+
+    boolProp useShaders false
+    boolProp lightingEnabled false
+
+To play earlier versions of the game, you will need to force **Shader Model 2**
+via the registry, force shaders and disable the lighting engine. Write the following:
+
+    boolProp useShaders true
+    boolProp lightingEnabled false
+
+And save to:
+
+    C:\users\YOURNAME\My Documents\EA Games\The Sims 2\Config\userStartup.cheat
+
+![Base game rendering with shaders, no lighting](.github/base-game-sm2-shaders-nolighting.jpg)
+
+This is not necessary when using newer versions of the game and expansion packs.
+Results may differ on different graphic cards and drivers.
+
+**Previous Wine patches/binaries forced Shader Model 2, but this is no longer the case.**
 
 ### Corrupted family thumbnails
 
@@ -62,29 +116,28 @@ The only exception is when a new default neighbourhood is loaded for the first t
 in which the thumbnails were already pre-rendered.
 
 ### Polygon Explosion
-
 Icons above a Sim's head (like the one when you get a new friend) can appear glitchy.
 
 ### Black screen after resolution changes
 Changing resolution while at a household can sometimes result in a black screen.
 
 ### [NVIDIA only] Black box shadows
-
 This also happens under the NVIDIA driver on Windows. This previously did not happen
 with earlier versions of the NVIDIA driver (around 396.x and before) and the original
 Wine patches.
 
 ![Black Shadow Bug](.github/black-shadow-bug.jpg)
 
-### [Wine] Huge log files.
+The workaround is to set the shadow settings to **Medium**.
 
+### [Wine] Huge log files.
 As the patches expose a lot of FIXMEs. If you're running via the terminal;
 keeping a log or using PlayOnLinux, beware that this can fill up to many
 hundreds of MBs, causing potential slowdown.
 
 ### Other Notes
 
-* If there are any other technical explainations or issues, feel free to create a pull request.
+* If there are any technical explainations or issues, feel free to create a pull request.
 * Please **do not** submit test reports to AppDB when using patched copies of Wine
 as the test results do not reflect "vanilla" Wine.
 * To view FPS and shader version in-game, press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>
@@ -100,6 +153,8 @@ later expansion packs and the Origin version.
 
 2. Download a copy of the Wine source code from https://dl.winehq.org/wine/source/
 
+3. Patch the source and build:
+
        tar -xvf wine-XXX.tar.bz2
        ln -s wine-XXX a
        patch -p0 < /path/to/file.patch
@@ -108,6 +163,8 @@ later expansion packs and the Origin version.
        make install -j4
 
 To speed up compiling, change `-j4` to the number of processor cores you have.
+
+If running via `make` only, you can use the `wine` script to run the build.
 
 #### macOS Support
 
@@ -121,7 +178,9 @@ to compile and play the game on Mac too.
 * [YouTube video demonstrating base game under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=j-pFDlEtnC0)
 * [YouTube video demonstrating EP9 under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=h9rZPdNLd6I&t=37s)
 * [Lutris](https://lutris.net/games/the-sims-2)
-* [Lutris - GitHub Wiki](https://github.com/lutris/lutris/wiki/Game:-The-Sims-2) - covers Origin version
+* [Lutris - GitHub Wiki](https://github.com/lutris/lutris/wiki/Game:-The-Sims-2) - covers Origin version.
+* [WineHQ AppDB - The Sims 2.x](https://appdb.winehq.org/objectManager.php?sClass=version&iId=2633)
+* [WineHQ Bugzilla - bug 8051](https://bugs.winehq.org/show_bug.cgi?id=8051#c124)
 
 
 ## License
