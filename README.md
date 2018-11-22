@@ -115,6 +115,12 @@ The 'red eagle' pose appears on the neighbourhood screen and during loading scre
 The only exception is when a new default neighbourhood is loaded for the first time
 in which the thumbnails were already pre-rendered.
 
+### Skin tone mismatch
+
+A Sims' skin colour may not match between their head and body.
+
+![Skin Tone Mismatch](.github/skin-tone-mismatch.jpg)
+
 ### Polygon Explosion
 Icons above a Sim's head (like the one when you get a new friend) can appear glitchy.
 
