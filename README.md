@@ -14,21 +14,27 @@ the most obvious one being **Direct3D returned an error: D3DERR_INVALIDCALL!**.
 It's one of the reasons why the game remains
 [**Garbage** on AppDB](https://appdb.winehq.org/objectManager.php?sClass=application&iId=1942). Also [voted #6](https://appdb.winehq.org/votestats.php)!
 
-Fear not, as some bug busters have patched the source to enables developers to
-investigate the missing Direct3D features, as well as enabling The Sims 2 to start
-the game expecting graphical issues. This repository will maintain the latest
-copy of Wine with these patches for you to test, debug or play.
+Fear not, as some bug busters have patched the source to investigate the missing
+Direct3D features. For players, The Sims 2 starts and is playable with the odd glitch!
+For developers, there's some interesting things to uncover. This repository will
+maintain the latest copy of Wine with these patches for you to test, debug or play.
 
 
 ## Binaries
 
 See the **[Releases](https://github.com/lah7/sims-2-wine-patches/releases)** page
-for the compiled binaries, which can also be added to front-ends such as
-[PlayOnLinux](http://www.playonlinux.com/en).
+for the compiled binaries, which can be downloaded and used as-is, or added to
+front-ends such as [PlayOnLinux](http://www.playonlinux.com/en) or
+[PlayOnMac](http://www.playonmac.com/en).
 
-These are built on **Ubuntu 16.04** on **i386** architecture, meaning they will only
-compatible with a **32-bit Wine prefix**.
+The binaries are currently compiled without 64-bit support (SysWOW64), meaning they require a 32-bit Wine prefix.
 
+Package     | Compiler OS   | Compiler Arch | Wine Prefix  | Notes |
+----------- | ------------- | ------------- | ------------ | ----- | 
+`linux-x86` | Ubuntu 16.04  | i386          | 32-bit       |
+`mac-x86`   | macOS 10.14.1 | amd64         | 32-bit       | macOS 10.15 will deprecate 32-bit support.
+
+macOS builds are considered experimental.
 
 ## Credits
 
@@ -67,7 +73,7 @@ Shader Model 2 and Shader Model 3 reveal differences, especially in the original
 base game (no patches, no expansions). Newer expansion packs suggest an improved
 rendering engine is used and may show no difference.
 
-#### Base Game
+#### [Base game only] 3D Rendering
 
 | Shader Model Version | `useShaders` | Screenshot |
 | -------------------- | ------------ | ---------- |
@@ -153,11 +159,17 @@ later expansion packs and the Origin version.
 
 ## Compile from Source
 
+Wine can be built on GNU/Linux and macOS.
+
 1. Clone this repository to acquire the patches.
 
        git clone https://github.com/lah7/sims-2-wine-patches.git
 
 2. Download a copy of the Wine source code from https://dl.winehq.org/wine/source/
+
+3. Install the dependencies.
+
+    https://wiki.winehq.org/Building_Wine#Satisfying_Build_Dependencies
 
 3. Patch the source and build:
 
@@ -171,12 +183,6 @@ later expansion packs and the Origin version.
 To speed up compiling, change `-j4` to the number of processor cores you have.
 
 If running via `make` only, you can use the `wine` script to run the build.
-
-#### macOS Support
-
-I haven't compiled for this platform before, but technically, if you install
-all the dependencies and then follow these instructions, Wine will be able
-to compile and play the game on Mac too.
 
 
 ## External Links
