@@ -32,7 +32,7 @@ The binaries are currently compiled without 64-bit support (SysWOW64), meaning t
 Package     | Compiler OS   | Compiler Arch | Wine Prefix  | Notes |
 ----------- | ------------- | ------------- | ------------ | ----- | 
 `linux-x86` | Ubuntu 16.04  | i386          | 32-bit       |
-`mac-x86`   | macOS 10.14.1 | amd64         | 32-bit       | macOS 10.15 will deprecate 32-bit support.
+`mac-x86`   | macOS 10.14.2 | amd64         | 32-bit       | macOS 10.15 will deprecate 32-bit support.
 
 macOS builds are considered experimental.
 
