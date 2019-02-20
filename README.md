@@ -6,8 +6,9 @@ the [Wine Compatibility Layer](https://www.winehq.org/).
 
 ## What's this?
 
-The Sims 2 is one of those classics that is highly unlikely to be ported to
-another platform.
+The Sims 2 is a classic, but is designed to run on Windows. It has been historically ported to Mac as
+[The Sims™ 2: Super Collection](https://www.aspyr.com/games/the-sims-2-super-collection) but
+is limited to 6 expansions, 3 stuff packs and hasn't seen any updates in 3+ years.
 
 There are some technical limitations that prevents The Sims 2 from working in Wine,
 the most obvious one being **Direct3D returned an error: D3DERR_INVALIDCALL!**.
