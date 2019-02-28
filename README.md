@@ -186,14 +186,18 @@ To speed up compiling, change `-j4` to the number of processor cores you have.
 If running via `make` only, you can use the `wine` script to run the build.
 
 
-## External Links
+## Bug Reports
+Developers and hackers, these are the bug reports on WineHQ Bugzilla:
 
+* [8051 - The Sims 2 demo needs support for software vertex processing](https://bugs.winehq.org/show_bug.cgi?id=8051)
+* [46735 - The Sims 2 demo needs Direct3DShaderValidatorCreate9() implementation](https://bugs.winehq.org/show_bug.cgi?id=46735)
+
+## External Links
 * [YouTube video demonstrating base game under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=j-pFDlEtnC0)
 * [YouTube video demonstrating EP9 under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=h9rZPdNLd6I&t=37s)
 * [Lutris](https://lutris.net/games/the-sims-2)
 * [Lutris - GitHub Wiki](https://github.com/lutris/lutris/wiki/Game:-The-Sims-2) - covers Origin version.
 * [WineHQ AppDB - The Sims 2.x](https://appdb.winehq.org/objectManager.php?sClass=version&iId=2633)
-* [WineHQ Bugzilla - bug 8051](https://bugs.winehq.org/show_bug.cgi?id=8051#c124)
 
 
 ## License
