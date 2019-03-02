@@ -58,15 +58,17 @@ of 256. Direct3D 9 normally supports up to 8192, using hardware shaders first
 (where available), followed by software emulation. Software emulation is currently
 not supported in Wine.
 
-### Undocumented D3D9 interfaces
+### Undocumented or unimplemented D3D9 interfaces
 
-The developers of The Sims 2 used undocumented interfaces for rendering
-shaders as discovered in [the bug report discussion](https://bugs.winehq.org/show_bug.cgi?id=8051#c124).
+The developers of The Sims 2 used some obscure features of Direct3D 9
+as discovered in [the bug report discussion](https://bugs.winehq.org/show_bug.cgi?id=8051#c124).
 Some of these will require implementation in Wine which are quite the task:
 
-* [Remove hardcoded vertex shader limit.](https://github.com/wine-mirror/wine/blob/2ef62f90853d9903cdded2442e382b89a4c3a55f/dlls/d3d9/d3d9_private.h#L43)
+* Remove hardcoded vertex shader limit - [see D3D9_MAX_VERTEX_SHADER_CONSTANTF in d3d9_private.h](https://github.com/wine-mirror/wine/blob/2ef62f90853d9903cdded2442e382b89a4c3a55f/dlls/d3d9/d3d9_private.h#L43)
+  * The game expects at least 1024.
   * *Suggestion:* Via registry?
-* Add ProcessVertices with shader support.
+* [Add ProcessVertices with shader support (#46742)](https://bugs.winehq.org/show_bug.cgi?id=46742)
+* [Add support for undocumented Direct3DShaderValidatorCreate9() implementation (#46735)](https://bugs.winehq.org/show_bug.cgi?id=46735)
 
 ### Shader Models
 
