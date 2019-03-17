@@ -124,6 +124,8 @@ The 'red eagle' pose appears on the neighbourhood screen and during loading scre
 The only exception is when a new default neighbourhood is loaded for the first time
 in which the thumbnails were already pre-rendered.
 
+This can be fixed by installing a mod, see [workarounds](#workarounds) below.
+
 ### Skin tone mismatch
 
 A Sims' skin colour may not match between their head and body.
@@ -136,14 +138,14 @@ Icons above a Sim's head (like the one when you get a new friend) can appear gli
 ### Black screen after resolution changes
 Changing resolution while at a household can sometimes result in a black screen.
 
-### [NVIDIA only] Black box shadows
+### [NVIDIA only] Black boxes for "High" shadows
 This also happens under the NVIDIA driver on Windows. This previously did not happen
 with earlier versions of the NVIDIA driver (around 396.x and before) and the original
 Wine patches.
 
 ![Black Shadow Bug](.github/black-shadow-bug.jpg)
 
-The workaround is to set the shadow settings to **Medium**.
+This can be fixed by installing a mod, see [workarounds](#workarounds) below.
 
 ### [Wine] Huge log files.
 As the patches expose a lot of FIXMEs. If you're running via the terminal;
@@ -159,8 +161,20 @@ as the test results do not reflect "vanilla" Wine.
 * There are some engine differences/improvements between the original release,
 later expansion packs and the Origin version.
 
+## Workarounds
 
-## Compile from Source
+By adding custom content to the game, you can further improve the game's appearance under Wine. These files are to be
+placed in this directory: `C:\Users\<YOURNAME>\My Documents\EA Games\The Sims 2\Downloads`
+
+* **Black Shadows**
+  * Add this mod: [Sim Shadow Fix](http://modthesims.info/d/569585/sim-shadow-fix-updated-2-jan-16.html) (v0.4)
+* **Corrupt family thumbnails**
+  * [**tannisroot** has modified the no-censor mod](https://github.com/lah7/sims-2-wine-patches/issues/4) to disable the anti-censoring functionality which happens to fix the thumbnails when saving.
+  * You can [download the mod from their repository](https://github.com/tannisroot/installer-fixes/raw/master/sims2_fixes.tar.xz), which includes the Sim Shadow Fix mod.
+
+If you're using [Lutris](https://lutris.net/games/the-sims-2), these mods are already included.
+
+## Build Instructions
 
 Wine can be built on GNU/Linux and macOS.
 
@@ -194,6 +208,7 @@ Developers and hackers, these are the bug reports on WineHQ Bugzilla:
 * [8051 - The Sims 2 demo needs support for software vertex processing](https://bugs.winehq.org/show_bug.cgi?id=8051)
 * [46735 - The Sims 2 demo needs Direct3DShaderValidatorCreate9() implementation](https://bugs.winehq.org/show_bug.cgi?id=46735)
 * [46742 - The Sims 2 demo needs support for ProcessVertices() with software vertex shaders](https://bugs.winehq.org/show_bug.cgi?id=46742)
+
 
 ## External Links
 * [YouTube video demonstrating base game under Wine 1.8-rc2 (patched)](https://www.youtube.com/watch?v=j-pFDlEtnC0)
