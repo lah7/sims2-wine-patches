@@ -37,6 +37,7 @@ Package     | Compiler OS   | Compiler Arch | Wine Prefix  | Notes |
 
 macOS builds are considered experimental.
 
+
 ## Credits
 
 Comment                                                     | Author                | Notes
@@ -49,7 +50,7 @@ Comment                                                     | Author            
 See [bug report 8051 on Wine's bug tracker](https://bugs.winehq.org/show_bug.cgi?id=8051) for development discussions.
 
 
-## Known Issues
+## Known Issues & Workarounds
 
 ### Hardcoded 256 vertex shaders
 
@@ -57,6 +58,7 @@ The Sims 2 requests 1024 vertex shader constants, but Wine has a hardcoded limit
 of 256. Direct3D 9 normally supports up to 8192, using hardware shaders first
 (where available), followed by software emulation. Software emulation is currently
 not supported in Wine.
+
 
 ### Undocumented or unimplemented D3D9 interfaces
 
@@ -70,13 +72,15 @@ Some of these will require implementation in Wine which are quite the task:
 * [Add ProcessVertices with shader support (#46742)](https://bugs.winehq.org/show_bug.cgi?id=46742)
 * [Add support for undocumented Direct3DShaderValidatorCreate9() implementation (#46735)](https://bugs.winehq.org/show_bug.cgi?id=46735)
 
+
 ### Shader Models
 
 Shader Model 2 and Shader Model 3 reveal differences, especially in the original
 base game (no patches, no expansions). Newer expansion packs suggest an improved
 rendering engine is used and may show no difference.
 
-#### [Base game only] 3D Rendering
+
+#### 3D Rendering (Base game only)
 
 | Shader Model Version | `useShaders` | Screenshot |
 | -------------------- | ------------ | ---------- |
@@ -106,7 +110,7 @@ via the registry, force shaders and disable the lighting engine. Write the follo
 
 And save to:
 
-    C:\users\YOURNAME\My Documents\EA Games\The Sims 2\Config\userStartup.cheat
+    C:\users\<YOURNAME>\My Documents\EA Games\The Sims 2\Config\userStartup.cheat
 
 ![Base game rendering with shaders, no lighting](.github/base-game-sm2-shaders-nolighting.jpg)
 
@@ -114,6 +118,7 @@ This is not necessary when using newer versions of the game and expansion packs.
 Results may differ on different graphic cards and drivers.
 
 **Previous Wine patches/binaries forced Shader Model 2, but this is no longer the case.**
+
 
 ### Corrupted family thumbnails
 
@@ -124,7 +129,12 @@ The 'red eagle' pose appears on the neighbourhood screen and during loading scre
 The only exception is when a new default neighbourhood is loaded for the first time
 in which the thumbnails were already pre-rendered.
 
-This can be fixed by installing a mod, see [workarounds](#workarounds) below.
+This can be fixed by installing a [modified no-censor mod](https://github.com/lah7/sims-2-wine-patches/issues/4)
+by @tannisroot. This disables the anti-censoring functionality which happens to fix the thumbnails when saving.
+
+You can [download the mod from their repository](https://github.com/tannisroot/installer-fixes/raw/master/sims2_fixes.tar.xz),
+which includes the Sim Shadow Fix mod.
+
 
 ### Skin tone mismatch
 
@@ -132,47 +142,57 @@ A Sims' skin colour may not match between their head and body.
 
 ![Skin Tone Mismatch](.github/skin-tone-mismatch.jpg)
 
+
 ### Polygon Explosion
 Icons above a Sim's head (like the one when you get a new friend) can appear glitchy.
+
 
 ### Black screen after resolution changes
 Changing resolution while at a household can sometimes result in a black screen.
 
-### [NVIDIA only] Black boxes for "High" shadows
+
+### Black boxes for "High" shadows (NVIDIA only)
 This also happens under the NVIDIA driver on Windows. This previously did not happen
 with earlier versions of the NVIDIA driver (around 396.x and before) and the original
 Wine patches.
 
 ![Black Shadow Bug](.github/black-shadow-bug.jpg)
 
-This can be fixed by installing a mod, see [workarounds](#workarounds) below.
+This can be fixed by installing the [Sim Shadow Fix](http://modthesims.info/d/569585/sim-shadow-fix-updated-2-jan-16.html) (v0.4) mod.
 
-### [Wine] Huge log files.
-As the patches expose a lot of FIXMEs. If you're running via the terminal;
-keeping a log or using PlayOnLinux, beware that this can fill up to many
+
+### Huge log files
+As the patches expose a lot of FIXMEs in Wine. This can fill up to many
 hundreds of MBs, causing potential slowdown.
+
 
 ### Other Notes
 
-* If there are any technical explainations or issues, feel free to create a pull request.
+* If there are any technical explainations, feel free to create a pull request or issue.
 * Please **do not** submit test reports to AppDB when using patched copies of Wine
 as the test results do not reflect "vanilla" Wine.
 * To view FPS and shader version in-game, press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>
 * There are some engine differences/improvements between the original release,
 later expansion packs and the Origin version.
 
+
 ## Workarounds
 
-By adding custom content to the game, you can further improve the game's appearance under Wine. These files are to be
-placed in this directory: `C:\Users\<YOURNAME>\My Documents\EA Games\The Sims 2\Downloads`
+The aforementioned workarounds are either cheat codes that are entered via the
+<kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> cheat console while playing, or
+saved to this file to run when the game starts:
 
-* **Black Shadows**
-  * Add this mod: [Sim Shadow Fix](http://modthesims.info/d/569585/sim-shadow-fix-updated-2-jan-16.html) (v0.4)
-* **Corrupt family thumbnails**
-  * [**tannisroot** has modified the no-censor mod](https://github.com/lah7/sims-2-wine-patches/issues/4) to disable the anti-censoring functionality which happens to fix the thumbnails when saving.
-  * You can [download the mod from their repository](https://github.com/tannisroot/installer-fixes/raw/master/sims2_fixes.tar.xz), which includes the Sim Shadow Fix mod.
+    C:\users\<YOURNAME>\My Documents\EA Games\The Sims 2\Config\userStartup.cheat
 
-If you're using [Lutris](https://lutris.net/games/the-sims-2), these mods are already included.
+Note that some rendering cheat codes require you to re-enter the household to take effect.
+
+Mods (custom content) are saved in this directory:
+
+    C:\Users\<YOURNAME>\My Documents\EA Games\The Sims 2\Downloads
+
+If you've installed The Sims 2 via [Lutris](https://lutris.net/games/the-sims-2),
+these mods are already included.
+
 
 ## Build Instructions
 
