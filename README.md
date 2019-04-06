@@ -142,13 +142,23 @@ A Sims' skin colour may not match between their head and body.
 
 ![Skin Tone Mismatch](.github/skin-tone-mismatch.jpg)
 
+This can be fixed by running this cheat code prior to entering the household:
+
+    boolProp skipTangentsInVertexData true
+
 
 ### Polygon Explosion
 Icons above a Sim's head (like the one when you get a new friend) can appear glitchy.
 
 
-### Black screen after resolution changes
-Changing resolution while at a household can sometimes result in a black screen.
+### Black screen after resolution changes (or when minimized)
+Changing resolution while in a household can sometimes result in a black screen.
+
+This can be fixed by running this cheat code:
+
+    boolProp createNVidiaWorkaroundTexture false
+
+Alternately, you may set the Wine prefix to run inside a virtual desktop.
 
 
 ### Black boxes for "High" shadows (NVIDIA only)
