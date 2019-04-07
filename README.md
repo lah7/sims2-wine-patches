@@ -73,21 +73,15 @@ Some of these will require implementation in Wine which are quite the task:
 * [Add support for undocumented Direct3DShaderValidatorCreate9() implementation (#46735)](https://bugs.winehq.org/show_bug.cgi?id=46735)
 
 
-### Shader Models
+### Shader Models: 3D Rendering (Early Sims 2 versions only)
 
-Shader Model 2 and Shader Model 3 reveal differences, especially in the original
-base game (no patches, no expansions). Newer expansion packs suggest an improved
-rendering engine is used and may show no difference.
+Shader Model 2 and Shader Model 3 reveal differences, particularly in the original
+release (no patches, no expansions). Newer expansion packs use an improved
+rendering engine with fewer differences between SM2 and SM3.
 
-
-#### 3D Rendering (Base game only)
-
-| Shader Model Version | `useShaders` | Screenshot |
-| -------------------- | ------------ | ---------- |
-| 2 | `false` | ![SM2, shaders disabled](.github/base-game-sm2-shadersfalse.jpg)
-| 2 | `true` | ![SM2, shaders enabled](.github/base-game-sm2-shaderstrue.jpg)
-| 3 | `false` | ![SM3, shaders disabled](.github/base-game-sm3-shadersfalse.jpg)
-| 3 | `true` | ![SM3, shaders enabled](.github/base-game-sm3-shaderstrue.jpg)
+| Shader Model 2 with `useShaders false` | Shader Model 2 with `useShaders true` | Shader Model 3 with `useShaders false` | Shader Model 3 with `useShaders true`
+| --- | --- | --- | --- |
+| ![SM2, shaders disabled](.github/base-game-sm2-shadersfalse.jpg) | ![SM2, shaders enabled](.github/base-game-sm2-shaderstrue.jpg) | ![SM3, shaders disabled](.github/base-game-sm3-shadersfalse.jpg) | ![SM3, shaders enabled](.github/base-game-sm3-shaderstrue.jpg)
 
 The Shader Model version can be set via [Wine's registry](https://wiki.winehq.org/Useful_Registry_Keys):
 
@@ -102,8 +96,8 @@ that will effect rendering in-game:
     boolProp useShaders false
     boolProp lightingEnabled false
 
-To play earlier versions of the game, you will need to force **Shader Model 2**
-via the registry, force shaders and disable the lighting engine. Write the following:
+In order to play earlier versions of the game, you will need to force **Shader Model 2**
+via the registry, turn on shaders and disable the lighting engine. Write the following:
 
     boolProp useShaders true
     boolProp lightingEnabled false
@@ -117,7 +111,15 @@ And save to:
 This is not necessary when using newer versions of the game and expansion packs.
 Results may differ on different graphic cards and drivers.
 
-**Previous Wine patches/binaries forced Shader Model 2, but this is no longer the case.**
+**Note:** Previous Wine patches/binaries mentioned in bug reports and this repository
+forced Shader Model 2 in the source code, but this is no longer the case.
+
+### Shader Model 3: Blue Snow
+
+If you have the **Seasons** expansion pack, you may experience blue snow
+outside the lot, you can workaround this by forcing Shader Model 2 via the registry.
+
+![Blue snow on The Sims 2 Seasons](https://user-images.githubusercontent.com/10602045/55664195-2fcc3800-5833-11e9-840d-551b01ad3239.png)
 
 
 ### Corrupted family thumbnails
