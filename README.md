@@ -132,10 +132,10 @@ The only exception is when a new default neighbourhood is loaded for the first t
 in which the thumbnails were already pre-rendered.
 
 This can be fixed by installing a [modified no-censor mod](https://github.com/lah7/sims-2-wine-patches/issues/4)
-by @tannisroot. This disables the anti-censoring functionality which happens to fix the thumbnails when saving.
+by **[@tannisroot](https://github.com/tannisroot)**. This disables the anti-censoring functionality which happens
+to fix the thumbnails when saving.
 
-You can [download the mod from their repository](https://github.com/tannisroot/installer-fixes/raw/master/sims2_fixes.tar.xz),
-which includes the Sim Shadow Fix mod.
+You can [download **thumbnails_fix.package** from this archive](https://github.com/tannisroot/installer-fixes/raw/master/sims2_fixes.tar.xz).
 
 
 ### Skin tone mismatch
