@@ -10,15 +10,18 @@ The Sims 2 is a classic, but is designed to run on Windows. It has been historic
 [The Sims™ 2: Super Collection](https://www.aspyr.com/games/the-sims-2-super-collection) but
 is limited to 6 expansions, 3 stuff packs and hasn't seen any updates in 3+ years.
 
-There are some technical limitations that prevents The Sims 2 from working in Wine,
-the most obvious one being **Direct3D returned an error: D3DERR_INVALIDCALL!**.
-It's one of the reasons why the game remains
-[**Garbage** on AppDB](https://appdb.winehq.org/objectManager.php?sClass=application&iId=1942). Also [voted #6](https://appdb.winehq.org/votestats.php)!
+There are some technical limitations that prevents The Sims 2 from running flawlessly
+out of the box. Under normal Wine, the game crashes **Direct3D returned an error: D3DERR_INVALIDCALL!**. 
+In **wine-staging**, the game starts but may be missing patches that
+workaround the known issues documented below.
 
-Fear not, as some bug busters have patched the source to investigate the missing
-Direct3D features. For players, The Sims 2 starts and is playable with the odd glitch!
-For developers, there's some interesting things to uncover. This repository will
-maintain the latest copy of Wine with these patches for you to test, debug or play.
+* [Ranked **Bronze** on AppDB](https://appdb.winehq.org/objectManager.php?sClass=application&iId=1942).
+* [Voted **#6** on AppDB's stats page](https://appdb.winehq.org/votestats.php).
+
+Thanks to the bug busters who have patched the source and found workarounds. For players, 
+The Sims 2 is playable with the odd glitch! For developers, there's some interesting
+things to uncover. This repository will maintain notes and mirror patches and Wine
+binaries where available for you to test, debug or play.
 
 
 ## Binaries
@@ -48,6 +51,8 @@ Comment                                                     | Author            
 [164](https://bugs.winehq.org/show_bug.cgi?id=8051#c164)    | Paul Gofman           | Updated to Wine 3.18, works with newer drivers.
 
 See [bug report 8051 on Wine's bug tracker](https://bugs.winehq.org/show_bug.cgi?id=8051) for development discussions.
+
+Thank you to Alexandr Oleynikov for suggesting mod workarounds and maintaining the Lutris installer.
 
 
 ## Known Issues & Workarounds
@@ -182,7 +187,7 @@ hundreds of MBs, causing potential slowdown.
 
 * If there are any technical explainations, feel free to create a pull request or issue.
 * Please **do not** submit test reports to AppDB when using patched copies of Wine
-as the test results do not reflect "vanilla" Wine.
+as the test results do not reflect "vanilla" Wine or wine-staging.
 * To view FPS and shader version in-game, press <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd>
 * There are some engine differences/improvements between the original release,
 later expansion packs and the Origin version.
