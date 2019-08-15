@@ -13,7 +13,7 @@ Make sure you have a Vulkan-enabled graphics card with compatible drivers,
 as well as Vulkan packages that provide libraries for 32-bit applications.
 
 
-## Steps
+## Installation
 
 1. Create a new prefix for The Sims 2 and run through installation as normal.
 
@@ -32,9 +32,7 @@ as well as Vulkan packages that provide libraries for 32-bit applications.
 1. Start The Sims 2!
 
 
-## Problems?
-
-### Missing Vulkan libraries
+### Not starting?
 
 If you see any of these errors:
 
@@ -45,8 +43,17 @@ If you see any of these errors:
 ```
 
 It's likely your system is missing the necessary Vulkan packages.
-Use your package manager to install them, and perhaps their 32-bit libraries too.
+Use your package manager to install them. 32-bit libraries may be required too.
 
+If the game still fails to load, it's possible your graphics card or graphics
+driver does not support the Vulkan API.
+
+
+## Known Issues
+
+There may be bugs! See here for problems that may occur under D9VK:
+
+https://github.com/Joshua-Ashton/d9vk/issues/242
 
 
 ### NVIDIA: Black boxes for "High" shadows
