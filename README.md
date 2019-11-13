@@ -30,6 +30,10 @@ providing your graphics driver and hardware supports Vulkan.
 * [Instructions for D9VK](README-D9VK.md)
 * [Instructions for WineD3D](README-WineD3D.md)
 
+As of 4.20, `wine-staging` added a patch for the missing
+[Direct3DShaderValidatorCreate9](https://github.com/wine-staging/wine-staging/tree/master/patches/d3d9-Direct3DShaderValidatorCreate9)
+implementation, although this still causes the 'red eagle pose'.
+
 
 ## Don't forget...
 
