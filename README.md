@@ -23,6 +23,7 @@ There are a few ways to play The Sims 2.
 | Wine (with patches) | Yes, with workarounds.
 | [D9VK](https://git.froggi.es/joshua/d9vk) | **Yes, recommended** for Vulkan-enabled graphics cards.
 | [Lutris](https://lutris.net/games/the-sims-2/) | Yes.
+| Proton 4.11               | No, crashes with **Direct3D returned an error: D3DERR_INVALIDCALL!**.
 
 The easiest to setup and provides the best compatibility is [D9VK](README-D9VK.md),
 providing your graphics driver and hardware supports Vulkan.
