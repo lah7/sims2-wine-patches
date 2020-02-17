@@ -1,10 +1,10 @@
-# How to play The Sims 2 under D9VK
+# How to play The Sims 2 under DXVK
 
-D9VK is a **Direct3D 9 to Vulkan** compatibilty layer based on DXVK's codebase.
+DXVK is a **Direct3D 9/10/11 to Vulkan** compatibilty layer.
 This provides the best compatibilty with newer and old versions of the game as
 it implements vertex shaders and makes better use of the hardware.
 
-https://git.froggi.es/joshua/d9vk
+https://github.com/doitsujin/dxvk
 
 
 ## Vulkan Prerequisites
@@ -17,17 +17,17 @@ as well as Vulkan packages that provide libraries for 32-bit applications.
 
 1. Create a new prefix for The Sims 2 and run through installation as normal.
 
-1. Download the latest "passed" build of D9VK:
+1. Download the latest "passed" build of DXVK:
 
-    https://git.froggi.es/joshua/d9vk/-/jobs
+    https://github.com/doitsujin/dxvk/releases
 
-1. Extract the ZIP and install D9VK into the Wine prefix:
+1. Extract the ZIP and install DXVK into the Wine prefix:
 
        export WINEPREFIX=/path/to/sims2_prefix
-       build/dxvk-release/setup_dxvk.sh install
+       dxvk-*/setup_dxvk.sh install
 
-    D9VK is a set of DLLs that are overridden by Wine, therefore, D9VK works with
-    any new (and system installed) version of Wine.
+    DXVK writes a set of DLLs that overlay WineD3D, allowing this work to with
+    whichever version of Wine you have installed.
 
 1. Start The Sims 2!
 

@@ -2,7 +2,7 @@
 
 ### What's this?
 
-This repository contains patches and instructions to get The Sims 2 working under
+This repository contains instructions and patches to get The Sims 2 working under
 the [Wine Compatibility Layer](https://www.winehq.org/).
 
 The Sims 2 is a classic, but is designed to run on Windows. It has been historically ported to Mac as
@@ -16,31 +16,28 @@ or using a patched build of Wine on Linux, and Mac too.
 
 There are a few ways to play The Sims 2.
 
-| Implementation            | Works?
-| ------------------------- | -----------
-| Wine (with no modifications) | No, crashes with **Direct3D returned an error: D3DERR_INVALIDCALL!**.
-| [wine-staging](https://github.com/wine-staging/wine-staging) | Partial, severe graphical glitches.
-| Wine (with patches) | Yes, with workarounds.
-| [D9VK](https://git.froggi.es/joshua/d9vk) | **Yes, recommended** for Vulkan-enabled graphics cards.
+| Implementation            | Works?       | Instructions
+| ------------------------- | ------------ | ------------------
+| Wine 5.2 (and later) | Maybe, likely to crash with **Direct3D returned an error: D3DERR_INVALIDCALL!**. | 
+| [wine-staging](https://github.com/wine-staging/wine-staging) | Partial, severe graphical glitches. |
+| Wine 4.x (with patches) | Yes, with workarounds. | [Instructions](README-WineD3D.md)
+| [DXVK](https://github.com/doitsujin/dxvk) | **Yes.** Recommended for Vulkan-enabled graphics cards. | [Instructions](README-D9VK.md)
 | [Lutris](https://lutris.net/games/the-sims-2/) | Yes.
-| Proton 4.11               | No, crashes with **Direct3D returned an error: D3DERR_INVALIDCALL!**.
+| Proton 4.11               | No, crashes with **Direct3D returned an error: D3DERR_INVALIDCALL!**. |
 
-The easiest to setup and provides the best compatibility is [D9VK](README-D9VK.md),
+The easiest to setup and provides the best compatibility is [DXVK](README-D9VK.md),
 providing your graphics driver and hardware supports Vulkan.
 
-* [Instructions for D9VK](README-D9VK.md)
-* [Instructions for WineD3D](README-WineD3D.md)
+As of 5.2, `wine` added the stub interface.
 
-As of 4.20, `wine-staging` added a patch for the missing
-[Direct3DShaderValidatorCreate9](https://github.com/wine-staging/wine-staging/tree/master/patches/d3d9-Direct3DShaderValidatorCreate9)
-implementation, although this still causes the 'red eagle pose'.
+> d3d9: Return a stub interface from Direct3DShaderValidatorCreate9().
 
 
 ## Don't forget...
 
-Since The Sims 2 doesn't work with an unmodified version of Wine, but does start
-with **wine-staging**. Please **do not** submit bug reports of patched versions, Lutris
-or D9VK versions to AppDB.
+When testing The Sims 2 for the purposes of sending test reports to AppDB. Please only do 
+so if this is against an unmodified version of Wine or `wine-staging`. Patched versions,
+Lutris or DXVK versions are not accepted.
 
 * [AppDB entry for The Sims 2](https://appdb.winehq.org/objectManager.php?sClass=application&iId=1942)
 * [AppDB's stats - The Sims 2 is voted **#6**!](https://appdb.winehq.org/votestats.php)
